@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Page</title>
+
+    <!-- Link to the bootstrap stylesheet:  insert this just before the </head> tag  (this version fits on a page) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/myStyles.css" type="text/css" >
+    <!-- END Link to the bootstrap stylesheet -->
+</head>
+<style>
+    hr {
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 5px;
+    }
+</style>
+<body>
+    <div class="marginAll">
+        <h2>Search Flights</h2>
+        <br />
+        <div th:replace="base :: navlinks"></div>
+        <br />
+        <form th:action="@{/procsearch}" method="post">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit">Search</button>
+        </form>
+        <!-- <br />
+        <a href="/add">Add Another Flight</a> -->
+        <br /><br />
+        <h2>Listing of All Flights</h2>
+        <br />
+        <div th:each="flight : ${flights}">
+            <hr>
+            <p><div class="alignLabel"><b>Airline:</b></div> <span th:text="${flight.airline}"></span></p>
+            <p><div class="alignLabel"><b>Airport</b> <i>(Point of departure):</i></div> <span th:text="${flight.beginAirport}"></span></p>
+            <p><div class="alignLabel"><b>Airport</b> <i>(Final destination):</i></div> <span th:text="${flight.endAirport}"></span></p>
+            <p><div class="alignLabel"><b>Departure Date:</b></div> <span th:text="${#dates.format(flight.date, 'dd-MM-yyyy')}"></span></p>
+            <!-- <p><b>Price:</b> <span class="dollars" th:text="${flight.price}"></span></p> -->
+            <p><div class="alignLabel"><b>Price:</b></div> <span th:inline="text">$ [[${#numbers.formatDecimal(flight.price, 0, 'COMMA', 2, 'POINT')}]]</span></p>
+            <!--
+            <p th:text="${flight.airline}">Airline: </p>
+            <p th:text="${flight.beginAirport}">Airport (Point of departure): </p>
+            <p th:text="${flight.endAirport}">Airport (Final destination):  </p>
+            <p th:text="${#dates.format(flight.date, 'dd-MM-yyyy')}">Departure Date: </p>
+            <p th:text="${flight.price}">Price: </p>
+            -->
+        </div>
+        <br />
+        <hr>
+        <div th:replace="base :: footer"></div>
+    </div>
+
+    <!-- JS code: insert this just before the </body> tag  (this version fits on a page) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous">
+    </script>
+    <!-- END JS code -->
+</body>
+</html>
