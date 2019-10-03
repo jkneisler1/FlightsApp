@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.text.SimpleDateFormat;
+// import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+// import java.util.Date;
 
 @Controller
 public class HomeController {
@@ -89,7 +88,7 @@ public class HomeController {
      /*     */
     @PostMapping("/procflight")
     public String processForm(@ModelAttribute Flight flight, @RequestParam(name="ldt") String ldt) {
-        String ldtPattern = "yyyy-MM-dd HH:mm";
+        //String ldtPattern = "yyyy-MM-dd HH:mm";
 
         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern(ldtPattern);
         //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
