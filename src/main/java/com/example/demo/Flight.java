@@ -30,28 +30,6 @@ public class Flight {
     public Flight() {
     }
 
-    /*
-    public Flight(Date date, String beginAirport, String endAirport, String airline, double price) {
-        this.date = date;
-        this.beginAirport = beginAirport;
-        this.endAirport = endAirport;
-        this.airline = airline;
-        this.price = price;
-    }
-
-
-    public Flight(LocalDateTime ldt, Date date, String beginAirport, String endAirport, String airline, double price) {
-        this.ldt = ldt;
-        this.date = date;
-        this.beginAirport = beginAirport;
-        this.endAirport = endAirport;
-        this.airline = airline;
-        this.price = price;
-    }
-   */
-
-     /*      */
-
     public Flight(LocalDateTime ldt, String beginAirport, String endAirport, String airline, double price) {
         this.ldt = ldt;
         this.beginAirport = beginAirport;
@@ -70,16 +48,6 @@ public class Flight {
         this.id = id;
     }
 
-     /*
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-     */
-
     public LocalDateTime getLdt() {
         return ldt;
     }
@@ -87,7 +55,6 @@ public class Flight {
     public void setLdt(LocalDateTime ldt) {
         this.ldt = ldt;
     }
-
 
     public String getBeginAirport() {
         return beginAirport;
