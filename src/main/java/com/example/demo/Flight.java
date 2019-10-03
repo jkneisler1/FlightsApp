@@ -7,9 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 //import java.time.LocalDate;
-// import java.time.LocalDateTime;
-import java.util.Date;
-// import java.text.DecimalFormat;
+import java.time.LocalDateTime;
+//import java.util.Date;
 
 @Entity
 public class Flight {
@@ -17,29 +16,50 @@ public class Flight {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    // @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss Z")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date date;
-    //private LocalDateTime date;
+    //@DateTimeFormat(pattern = "yyyy-MM-dd")
+    //private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime ldt;
 
     private String beginAirport;
     private String endAirport;
     private String airline;
     private double price;
-    // private static DecimalFormat df2 = new DecimalFormat("#.##");
 
     // Constructors
     public Flight() {
     }
 
+    /*
     public Flight(Date date, String beginAirport, String endAirport, String airline, double price) {
-    // public Flight(LocalDateTime date, String beginAirport, String endAirport, String airline, double price) {
         this.date = date;
         this.beginAirport = beginAirport;
         this.endAirport = endAirport;
         this.airline = airline;
         this.price = price;
     }
+
+
+    public Flight(LocalDateTime ldt, Date date, String beginAirport, String endAirport, String airline, double price) {
+        this.ldt = ldt;
+        this.date = date;
+        this.beginAirport = beginAirport;
+        this.endAirport = endAirport;
+        this.airline = airline;
+        this.price = price;
+    }
+   */
+
+     /*      */
+
+    public Flight(LocalDateTime ldt, String beginAirport, String endAirport, String airline, double price) {
+        this.ldt = ldt;
+        this.beginAirport = beginAirport;
+        this.endAirport = endAirport;
+        this.airline = airline;
+        this.price = price;
+    }
+
 
     // Getters and Setters
     public long getId() {
@@ -50,7 +70,7 @@ public class Flight {
         this.id = id;
     }
 
-
+     /*
     public Date getDate() {
         return date;
     }
@@ -58,17 +78,17 @@ public class Flight {
     public void setDate(Date date) {
         this.date = date;
     }
+     */
 
-    /*
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getLdt() {
+        return ldt;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
+    public void setLdt(LocalDateTime ldt) {
+        this.ldt = ldt;
     }
-    */
-    
+
+
     public String getBeginAirport() {
         return beginAirport;
     }

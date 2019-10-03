@@ -42,16 +42,10 @@
             <p><div class="alignLabel"><b>Airline:</b></div> <span th:text="${flight.airline}"></span></p>
             <p><div class="alignLabel"><b>Airport</b> <i>(Point of departure):</i></div> <span th:text="${flight.beginAirport}"></span></p>
             <p><div class="alignLabel"><b>Airport</b> <i>(Final destination):</i></div> <span th:text="${flight.endAirport}"></span></p>
-            <p><div class="alignLabel"><b>Departure Date:</b></div> <span th:text="${#dates.format(flight.date, 'dd-MM-yyyy')}"></span></p>
-            <!-- <p><b>Price:</b> <span class="dollars" th:text="${flight.price}"></span></p> -->
+            <!-- <p><div class="alignLabel"><b>Departure Date:</b></div> <span th:text="${#dates.format(flight.date, 'dd-MM-yyyy')}"></span></p>  -->
+            <p><div class="alignLabel"><b>Departure Date and Time:</b></div> <span th:text="${#temporals.format(flight.ldt, 'dd-MM-yyyy HH:mm')}"></span></p>
             <p><div class="alignLabel"><b>Price:</b></div> <span th:inline="text">$ [[${#numbers.formatDecimal(flight.price, 0, 'COMMA', 2, 'POINT')}]]</span></p>
-            <!--
-            <p th:text="${flight.airline}">Airline: </p>
-            <p th:text="${flight.beginAirport}">Airport (Point of departure): </p>
-            <p th:text="${flight.endAirport}">Airport (Final destination):  </p>
-            <p th:text="${#dates.format(flight.date, 'dd-MM-yyyy')}">Departure Date: </p>
-            <p th:text="${flight.price}">Price: </p>
-            -->
+
         </div>
         <br />
         <hr>

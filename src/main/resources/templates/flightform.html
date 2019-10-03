@@ -30,11 +30,13 @@
         <br />
         <form th:action="@{/procflight}" th:object="${flight}" method="post">
             <input type="hidden" th:field="*{id}" />
-            <input type="hidden" th:field="*{date}" />
+            <!-- <input type="hidden" th:field="*{date}" /> -->
+            <input type="hidden" th:field="*{ldt}" />
             <div class="alignLabel"><b>Airline:</b></div> <input type="text" placeholder="Airline" th:field="*{airline}" /><br />
             <div class="alignLabel"><b>Airport</b> <i>(Point of departure):</i></div> <input type="text" placeholder="BeginAirport" th:field="*{beginAirport}" /><br />
             <div class="alignLabel"><p><b>Airport</b> <i>(Final destination):</i></div> <input type="text" placeholder="EndAirport" th:field="*{endAirport}" /><br />
-            <div class="alignLabel"><b>Departure Date:</b></div> <input type="date" name="date" /><br />
+            <!-- <div class="alignLabel"><b>Departure Date:</b></div> <input type="date" name="date" /><br /> -->
+            <div class="alignLabel"><b>Departure Date and Time:</b></div> <input type="datetime-local" name="ldt" /><br />
             <div class="alignLabel"><b>Price:</b></div> <input type="number" name="price" />
             <br /><br />
 
